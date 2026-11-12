@@ -1,22 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-// READ
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
-
-// CREATE
-Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
-Route::post('/students', [StudentController::class, 'store'])->name('students.store');
-
-// UPDATE
-Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
-Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
-
-// DELETE
-Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
